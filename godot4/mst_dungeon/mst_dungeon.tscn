@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dj5pamcw527p5"]
+
+[ext_resource type="Script" uid="uid://cwuvnbhgfoho" path="res://mst_dungeon/mst_dungeon.gd" id="1_pojhx"]
+[ext_resource type="TileSet" uid="uid://cvfdg1ii7f6yx" path="res://shared/basic_tileset.tres" id="2_5jssb"]
+
+[node name="MSTDungeon" type="Node2D" unique_id=489205524]
+script = ExtResource("1_pojhx")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1296308131]
+zoom = Vector2(0.125, 0.125)
+
+[node name="DungeonTileMapLayer" type="TileMapLayer" parent="." unique_id=812132612]
+unique_name_in_owner = true
+show_behind_parent = true
+tile_set = ExtResource("2_5jssb")
+
+[node name="Rooms" type="Node2D" parent="." unique_id=1598359763]
+unique_name_in_owner = true

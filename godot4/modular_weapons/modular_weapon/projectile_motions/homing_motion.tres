@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="HomingMotion" format=3 uid="uid://ci0okhnevdi5r"]
+
+[ext_resource type="Script" uid="uid://im1y8g0gishk" path="res://modular_weapons/modular_weapon/src/projectile_motion/motions/homing_motion.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+homing_radius = 250.0
+homing_strength = 0.275
+collision_mask = 2

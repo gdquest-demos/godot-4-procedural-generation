@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bo16yl58lvfnr"]
+
+[ext_resource type="Script" uid="uid://cy7hdhiug3ch4" path="res://infinite_space/shared/player/player.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cgjqgfsuuxxpw" path="res://infinite_space/shared/player/topdown_player.svg" id="2"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1806481146]
+script = ExtResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=636747029]
+texture = ExtResource("2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1385087543]
+polygon = PackedVector2Array(0, -40, 30, 0, 40, 35, -40, 35, -30, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1476308354]
+zoom = Vector2(0.2, 0.2)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m321atbmjg3h"
-path="res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex"
+uid="uid://bqyedej4owyqc"
+path="res://.godot/imported/puff_smooth.png-efe0d776d4424ff45a6f44f01fd464f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.png"
-dest_files=["res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex"]
+source_file="res://modular_weapons/modular_weapon/src/projectile_events/events/explosion_event/puff_smooth.png"
+dest_files=["res://.godot/imported/puff_smooth.png-efe0d776d4424ff45a6f44f01fd464f2.ctex"]
 
 [params]
 

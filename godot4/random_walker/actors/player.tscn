@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bvew0uroh2hcu"]
+
+[ext_resource type="Texture2D" uid="uid://cqv8s40eawu7i" path="res://random_walker/levels/tiles.svg" id="1"]
+[ext_resource type="Script" uid="uid://7mrqsirsvcpx" path="res://random_walker/actors/player.gd" id="2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mbl4j"]
+radius = 12.0
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="2"]
+radius = 15.0
+height = 55.0
+
+[node name="Player" type="CharacterBody2D" unique_id=834160945 groups=["player"]]
+collision_layer = 0
+script = ExtResource("2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1566670860]
+texture = ExtResource("1")
+offset = Vector2(0, -30)
+region_enabled = true
+region_rect = Rect2(300, 240, 30, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=913499173]
+position = Vector2(0, -30)
+shape = SubResource("CapsuleShape2D_mbl4j")
+
+[node name="DangerDetector" type="Area2D" parent="." unique_id=681010957]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DangerDetector" unique_id=1475950532]
+position = Vector2(0, -30)
+shape = SubResource("2")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=1703967337]
+
+[connection signal="body_entered" from="DangerDetector" to="." method="_on_DangerDetector_body_entered"]

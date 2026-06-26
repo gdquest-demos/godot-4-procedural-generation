@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://d1c8kw70jw5gj"]
+
+[ext_resource type="PackedScene" uid="uid://b6dyithfkwp8q" path="res://random_walker/levels/level.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bay1h44si2fve" path="res://random_walker/random_walker.gd" id="2"]
+[ext_resource type="Script" uid="uid://doyjwrdnotgpv" path="res://random_walker/camera_2d.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://c6wokvkr46cbh" path="res://random_walker/levels/background_hills.svg" id="5"]
+[ext_resource type="Texture2D" uid="uid://c82vnjhqgpcos" path="res://random_walker/levels/background_trees.svg" id="6"]
+[ext_resource type="Texture2D" uid="uid://cfrb75bpw4epe" path="res://random_walker/levels/background_gradient.svg" id="8"]
+
+[node name="RandomWalker" type="Node2D" unique_id=290041197]
+process_mode = 3
+script = ExtResource("2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=273278850]
+unique_name_in_owner = true
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_left_margin = 0.0
+drag_right_margin = 0.0
+script = ExtResource("4")
+
+[node name="Level" parent="." unique_id=1562940273 instance=ExtResource("1")]
+unique_name_in_owner = true
+process_mode = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1427198817]
+unique_name_in_owner = true
+wait_time = 0.15
+autostart = true
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1703106545]
+layer = -128
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer" unique_id=878267075]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1167868219]
+unique_name_in_owner = true
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayerTrees" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1077860925]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerTrees" unique_id=604508851]
+texture_repeat = 2
+texture = ExtResource("6")
+region_enabled = true
+region_rect = Rect2(0, 0, 7980, 1200)
+
+[node name="ParallaxLayerHills" type="ParallaxLayer" parent="ParallaxBackground" unique_id=69092258]
+motion_scale = Vector2(0.25, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerHills" unique_id=1304860946]
+texture_repeat = 2
+texture = ExtResource("5")
+region_enabled = true
+region_rect = Rect2(0, 0, 7200, 1400)
+
+[connection signal="level_completed" from="." to="Camera2D" method="_on_level_generator_level_completed"]
+[connection signal="zoom_changed" from="Camera2D" to="." method="_on_camera_2d_zoom_changed"]

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://chbhk5g00t35j"]
+
+[ext_resource type="PackedScene" uid="uid://1nbvdtr0s2lj" path="res://infinite_space/shared/asteroid.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://bo16yl58lvfnr" path="res://infinite_space/shared/player/player.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dropctlxnbvds" path="res://infinite_space/shared/grid_drawer.tscn" id="3"]
+[ext_resource type="Script" uid="uid://dpa2r2eo2yrgb" path="res://infinite_space/white_noise_world_generator.gd" id="4"]
+
+[node name="WhiteNoiseWorldGenerator" type="Node2D" unique_id=1682608323]
+script = ExtResource("4")
+Asteroid = ExtResource("1")
+start_seed = "white_noise_generation"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=569488168]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=920289284]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.0666667, 0.133333, 0.333333, 1)
+
+[node name="Player" parent="." unique_id=1200043468 instance=ExtResource("2")]
+
+[node name="GridDrawer" parent="." unique_id=217077345 instance=ExtResource("3")]

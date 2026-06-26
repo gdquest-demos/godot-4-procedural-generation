@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://gfs65v4lsajh"]
+
+[ext_resource type="Texture2D" uid="uid://dkxma1xs1p07m" path="res://cellular_automata/03_dungeon_generator/props/chest.png" id="1"]
+[ext_resource type="Script" uid="uid://gx5882b3rgea" path="res://cellular_automata/03_dungeon_generator/props/treasure.gd" id="2"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(64, 64)
+
+[node name="Treasure" type="Area2D" unique_id=1643100606 groups=["treasure"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=810235678]
+position = Vector2(32, 32)
+shape = SubResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1356552527]
+position = Vector2(32, 32)
+texture = ExtResource("1")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

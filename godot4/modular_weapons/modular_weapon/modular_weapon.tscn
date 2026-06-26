@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://jdwk2wjgtj56"]
+
+[ext_resource type="Script" uid="uid://pov11n0p4c52" path="res://modular_weapons/modular_weapon/src/modular_weapon.gd" id="1_dug8c"]
+[ext_resource type="PackedScene" uid="uid://dios6atpm7cd5" path="res://modular_weapons/modular_weapon/firing_configurations/straight_1_configuration.tscn" id="2_210dn"]
+[ext_resource type="PackedScene" uid="uid://dapwbytibyleq" path="res://modular_weapons/modular_weapon/projectiles/basic_emitter.tscn" id="3_55bi5"]
+[ext_resource type="Script" uid="uid://b4iexj1u7fcio" path="res://modular_weapons/modular_weapon/src/projectile_motion/projectile_motion.gd" id="4_g5u8s"]
+[ext_resource type="Resource" uid="uid://dvkepprqpw5qw" path="res://modular_weapons/modular_weapon/projectile_motions/straight_motion.tres" id="5_vgv5u"]
+
+[node name="ModularWeapons" type="Node2D" unique_id=1087363384]
+script = ExtResource("1_dug8c")
+emitter_configuration = ExtResource("2_210dn")
+projectile_emitter = ExtResource("3_55bi5")
+projectile_motions = Array[ExtResource("4_g5u8s")]([ExtResource("5_vgv5u")])

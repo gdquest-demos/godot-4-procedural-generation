@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://boxn8556n0sbw"]
+
+[ext_resource type="Script" uid="uid://b3lexfbs2eafd" path="res://cellular_automata/03_dungeon_generator/miner/miner.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c5t4kv4e75gr4" path="res://cellular_automata/03_dungeon_generator/miner/miner.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://conglyxmvaxgb" path="res://cellular_automata/03_dungeon_generator/miner/drill-top.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bgxdxc60wdey6" path="res://cellular_automata/03_dungeon_generator/miner/drill-blade.png" id="4"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 24.0
+
+[sub_resource type="Animation" id="2"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PivotMarker2D/DrillSprite2D/BladeSprite2D:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 360.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5ryw"]
+_data = {
+&"walk": SubResource("2")
+}
+
+[node name="Miner" type="CharacterBody2D" unique_id=1474405228]
+collision_layer = 3
+collision_mask = 2
+safe_margin = 1.0
+script = ExtResource("1")
+
+[node name="PivotMarker2D" type="Marker2D" parent="." unique_id=708407940]
+unique_name_in_owner = true
+
+[node name="MinerSprite2D" type="Sprite2D" parent="PivotMarker2D" unique_id=496028631]
+texture = ExtResource("2")
+
+[node name="DrillSprite2D" type="Sprite2D" parent="PivotMarker2D" unique_id=435672708]
+position = Vector2(56, 0)
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3")
+
+[node name="BladeSprite2D" type="Sprite2D" parent="PivotMarker2D/DrillSprite2D" unique_id=1512133473]
+show_behind_parent = true
+texture = ExtResource("4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=596073053]
+shape = SubResource("1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=422316850]
+libraries/ = SubResource("AnimationLibrary_u5ryw")
+autoplay = &"walk"

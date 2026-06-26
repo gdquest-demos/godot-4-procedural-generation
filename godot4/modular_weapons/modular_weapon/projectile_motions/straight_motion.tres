@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="StraightMotion" format=3 uid="uid://dvkepprqpw5qw"]
+
+[ext_resource type="Script" uid="uid://d3gd4mvyul6sj" path="res://modular_weapons/modular_weapon/src/projectile_motion/motions/straight_motion.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+travel_speed = 650.0

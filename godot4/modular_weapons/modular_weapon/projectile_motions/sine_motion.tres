@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SineMotion" format=3 uid="uid://cugqdrkcuqum2"]
+
+[ext_resource type="Script" uid="uid://dlk7mgyv4vyqp" path="res://modular_weapons/modular_weapon/src/projectile_motion/motions/sine_motion.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+amplitude = 100.0
+frequency = 2

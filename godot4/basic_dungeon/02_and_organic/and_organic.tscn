@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://djar46m4afhmk"]
+
+[ext_resource type="Script" uid="uid://ddyf25wctlkla" path="res://basic_dungeon/02_and_organic/and_organic.gd" id="1_02jn1"]
+[ext_resource type="TileSet" uid="uid://cvfdg1ii7f6yx" path="res://shared/basic_tileset.tres" id="2_02jn1"]
+
+[node name="BasicDungeonAndOrganic" type="Node2D" unique_id=1248389318]
+script = ExtResource("1_02jn1")
+
+[node name="LevelTileMapLayer" type="TileMapLayer" parent="." unique_id=1458766311]
+unique_name_in_owner = true
+tile_set = ExtResource("2_02jn1")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1681712130]
+unique_name_in_owner = true

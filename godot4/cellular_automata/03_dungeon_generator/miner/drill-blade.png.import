@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m321atbmjg3h"
-path="res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex"
+uid="uid://bgxdxc60wdey6"
+path="res://.godot/imported/drill-blade.png-ea71454fe1dbb1dc4eae6505c942363c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.png"
-dest_files=["res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex"]
+source_file="res://cellular_automata/03_dungeon_generator/miner/drill-blade.png"
+dest_files=["res://.godot/imported/drill-blade.png-ea71454fe1dbb1dc4eae6505c942363c.ctex"]
 
 [params]
 

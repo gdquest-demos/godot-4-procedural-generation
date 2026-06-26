@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dropctlxnbvds"]
+
+[ext_resource type="Script" uid="uid://c0rfds0w2i1ha" path="res://infinite_space/shared/grid_drawer.gd" id="1"]
+
+[node name="GridDrawer" type="Node2D" unique_id=1392459141]
+script = ExtResource("1")

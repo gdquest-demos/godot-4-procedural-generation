@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bugxljkv6iuct"]
+
+[ext_resource type="Script" uid="uid://bem8mrks6br6y" path="res://modular_weapons/modular_weapon/src/firing_configuration/weapon_location.gd" id="1"]
+
+[node name="WeaponLocation" type="Marker2D" unique_id=1722263060]
+script = ExtResource("1")

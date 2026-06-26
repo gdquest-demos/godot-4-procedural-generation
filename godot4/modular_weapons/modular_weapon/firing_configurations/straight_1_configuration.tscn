@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dios6atpm7cd5"]
+
+[ext_resource type="PackedScene" uid="uid://bugxljkv6iuct" path="res://modular_weapons/modular_weapon/src/firing_configuration/weapon_location.tscn" id="1"]
+
+[node name="Straight1Configuration" type="Node2D" unique_id=1234959418]
+
+[node name="WeaponLocation" parent="." unique_id=713539135 instance=ExtResource("1")]
+position = Vector2(0, -40)

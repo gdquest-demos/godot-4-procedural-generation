@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d1c7v5imr67s6"]
+
+[ext_resource type="Script" uid="uid://df5jxhl6hl5ne" path="res://modular_weapons/modular_weapon/src/projectile/basic/basic_projectile.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dx45ilemf8t5c" path="res://modular_weapons/modular_weapon/src/projectile/basic/white_circle.svg" id="3"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 5.0
+
+[node name="Projectile" type="CharacterBody2D" unique_id=1413707100]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=788949488]
+shape = SubResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1389524044]
+modulate = Color(1.37647, 0.550031, 0.101961, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3")
+
+[node name="Timer" type="Timer" parent="." unique_id=1861338488]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

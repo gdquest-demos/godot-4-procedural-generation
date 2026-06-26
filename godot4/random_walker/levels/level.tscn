@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b6dyithfkwp8q"]
+
+[ext_resource type="TileSet" uid="uid://cd00vubx3rfc7" path="res://random_walker/levels/tileset.tres" id="2_csqdq"]
+
+[node name="Level" type="Node2D" unique_id=421531254]
+
+[node name="MainTileMapLayer" type="TileMapLayer" parent="." unique_id=2112108814]
+tile_set = ExtResource("2_csqdq")
+
+[node name="DangerTileMapLayer" type="TileMapLayer" parent="." unique_id=542534938]
+tile_set = ExtResource("2_csqdq")
+
+[node name="Extra" type="Node2D" parent="." unique_id=652651249]
+unique_name_in_owner = true

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cgwk053sjmjot"]
+
+[ext_resource type="PackedScene" uid="uid://cuywmrsrrocdk" path="res://modular_weapons/modular_weapon/src/projectile/laser/laser_tracer.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dm8rc5fx7lhul" path="res://modular_weapons/modular_weapon/src/projectile/laser/laser_emitter.gd" id="2"]
+[ext_resource type="Material" uid="uid://hgugamkrjpg5" path="res://modular_weapons/modular_weapon/src/projectile/laser/casting_particles.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://cyfp8v3f52q7l" path="res://modular_weapons/modular_weapon/src/projectile/laser/glowing_circle.png" id="4"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends Line2D
+
+func _ready() -> void:
+	set_as_top_level(true)
+"
+
+[node name="LaserEmitter" type="Node2D" unique_id=1036387242]
+script = ExtResource("2")
+projectile_lifetime = 2.0
+
+[node name="LaserTracer" parent="." unique_id=1713201756 instance=ExtResource("1")]
+visible = false
+
+[node name="Line2D" type="Line2D" parent="." unique_id=572502648]
+default_color = Color(1.43922, 0.74902, 0.2, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+script = SubResource("1")
+
+[node name="Timer" type="Timer" parent="." unique_id=216126705]
+one_shot = true
+
+[node name="CastingParticles" type="GPUParticles2D" parent="." unique_id=1586574596]
+modulate = Color(1.43922, 0.745098, 0.2, 1)
+emitting = false
+texture = ExtResource("4")
+lifetime = 0.3
+visibility_rect = Rect2(-16.3859, -29.8711, 35.7076, 29.8554)
+process_material = ExtResource("3")
+
+[connection signal="collided" from="LaserTracer" to="." method="_on_projectile_collided"]

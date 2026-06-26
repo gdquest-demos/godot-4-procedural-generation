@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bcx4phl1k7no0"]
+
+[ext_resource type="Script" uid="uid://ia31tcmpo1hn" path="res://basic_dungeon/03_bonus/bonus.gd" id="1_4sngd"]
+[ext_resource type="TileSet" uid="uid://cvfdg1ii7f6yx" path="res://shared/basic_tileset.tres" id="2_n5xyi"]
+
+[node name="BasicDungeonBonus" type="Node2D" unique_id=1407088806]
+script = ExtResource("1_4sngd")
+
+[node name="LevelTileMapLayer" type="TileMapLayer" parent="." unique_id=275244426]
+unique_name_in_owner = true
+tile_set = ExtResource("2_n5xyi")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=206381569]
+unique_name_in_owner = true

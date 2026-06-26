@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://6mc8wksgfkjv"]
+
+[ext_resource type="Texture2D" uid="uid://c3x1bjri68gea" path="res://cellular_automata/03_dungeon_generator/props/exit.png" id="1"]
+[ext_resource type="Script" uid="uid://cfdcnknq01jeg" path="res://cellular_automata/03_dungeon_generator/props/exit.gd" id="2"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(64, 64)
+
+[node name="Exit" type="Area2D"]
+collision_layer = 0
+monitoring = false
+monitorable = false
+script = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

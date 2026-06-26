@@ -1,0 +1,21 @@
+[gd_resource type="TileSet" format=3 uid="uid://brghypklahquq"]
+
+[ext_resource type="Texture2D" uid="uid://c3wf6uulun34o" path="res://cellular_automata/01_foliage_generator/plants.png" id="1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g01mx"]
+texture = ExtResource("1")
+texture_region_size = Vector2i(64, 96)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 16)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 16)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, 16)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, 16)
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, 16)
+
+[resource]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_g01mx")

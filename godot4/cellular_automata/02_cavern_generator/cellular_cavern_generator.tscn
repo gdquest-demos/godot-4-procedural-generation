@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://bs5e36rdubb80"]
+
+[ext_resource type="Script" uid="uid://c42fnhnp6bd3s" path="res://cellular_automata/02_cavern_generator/cellular_cavern_generator.gd" id="1_1x1wv"]
+[ext_resource type="TileSet" uid="uid://cvfdg1ii7f6yx" path="res://shared/basic_tileset.tres" id="2_xtb4r"]
+[ext_resource type="Script" uid="uid://c8qbiroi1de43" path="res://cellular_automata/02_cavern_generator/ui_settings.gd" id="3_j61vq"]
+
+[node name="CellularCavernGenerator" type="Node2D" unique_id=365636996]
+script = ExtResource("1_1x1wv")
+
+[node name="DungeonTileMapLayer" type="TileMapLayer" parent="." unique_id=1302474725]
+unique_name_in_owner = true
+tile_set = ExtResource("2_xtb4r")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=73793533]
+anchor_mode = 0
+zoom = Vector2(0.25, 0.25)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2045742196]
+
+[node name="UISettingsControl" type="Control" parent="CanvasLayer" unique_id=6265078]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_j61vq")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/UISettingsControl" unique_id=725804262]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 600.0
+offset_right = 562.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0.258824)
+
+[node name="GenerateButton" type="Button" parent="CanvasLayer/UISettingsControl" unique_id=1290141208]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -861.0
+offset_top = -91.0
+offset_right = -731.0
+offset_bottom = -26.0001
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+text = "Generate"
+
+[node name="WallChance" type="HBoxContainer" parent="CanvasLayer/UISettingsControl" unique_id=1434874126]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 597.0
+offset_right = 400.0
+offset_bottom = 623.0
+
+[node name="Description" type="Label" parent="CanvasLayer/UISettingsControl/WallChance" unique_id=1567106698]
+custom_minimum_size = Vector2(132, 0)
+layout_mode = 2
+tooltip_text = "The chance a cell initially spawns as a wall tile."
+mouse_filter = 1
+text = "Wall Chance"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/UISettingsControl/WallChance" unique_id=497211575]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="Value" type="Label" parent="CanvasLayer/UISettingsControl/WallChance" unique_id=266791914]
+layout_mode = 2
+text = "0.5"
+
+[node name="WallConversion" type="HBoxContainer" parent="CanvasLayer/UISettingsControl" unique_id=96104455]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 617.0
+offset_right = 400.0
+offset_bottom = 643.0
+
+[node name="Description" type="Label" parent="CanvasLayer/UISettingsControl/WallConversion" unique_id=1988732424]
+custom_minimum_size = Vector2(132, 0)
+layout_mode = 2
+tooltip_text = "Each step, a floor cell turns into a wall if it has less than this number of floor neighbors."
+mouse_filter = 1
+text = "Wall Conversion"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/UISettingsControl/WallConversion" unique_id=679797191]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+max_value = 8.0
+value = 4.0
+
+[node name="Value" type="Label" parent="CanvasLayer/UISettingsControl/WallConversion" unique_id=513043494]
+layout_mode = 2
+text = "< 4"
+
+[node name="FloorConversion" type="HBoxContainer" parent="CanvasLayer/UISettingsControl" unique_id=2128602966]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 637.0
+offset_right = 400.0
+offset_bottom = 663.0
+
+[node name="Description" type="Label" parent="CanvasLayer/UISettingsControl/FloorConversion" unique_id=2140055819]
+custom_minimum_size = Vector2(132, 0)
+layout_mode = 2
+tooltip_text = "Each step, a wall cell turns into a floor if it has greater than this number of floor neighbors."
+mouse_filter = 1
+text = "Floor Conversion"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/UISettingsControl/FloorConversion" unique_id=1022280601]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+max_value = 8.0
+value = 4.0
+
+[node name="Value" type="Label" parent="CanvasLayer/UISettingsControl/FloorConversion" unique_id=1086391181]
+layout_mode = 2
+text = "> 4"
+
+[node name="StepCount" type="HBoxContainer" parent="CanvasLayer/UISettingsControl" unique_id=1633793772]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 677.0
+offset_right = 400.0
+offset_bottom = 703.0
+
+[node name="Description" type="Label" parent="CanvasLayer/UISettingsControl/StepCount" unique_id=1160837318]
+custom_minimum_size = Vector2(132, 0)
+layout_mode = 2
+text = "Step Count"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/UISettingsControl/StepCount" unique_id=1040000692]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+max_value = 20.0
+value = 10.0
+
+[node name="Value" type="Label" parent="CanvasLayer/UISettingsControl/StepCount" unique_id=692765057]
+layout_mode = 2
+text = "10"
+
+[node name="StepTime" type="HBoxContainer" parent="CanvasLayer/UISettingsControl" unique_id=1351885772]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 697.0
+offset_right = 400.0
+offset_bottom = 723.0
+
+[node name="Description" type="Label" parent="CanvasLayer/UISettingsControl/StepTime" unique_id=637861185]
+custom_minimum_size = Vector2(132, 0)
+layout_mode = 2
+text = "Step Time"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/UISettingsControl/StepTime" unique_id=197171579]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+max_value = 0.5
+step = 0.1
+value = 0.1
+
+[node name="Value" type="Label" parent="CanvasLayer/UISettingsControl/StepTime" unique_id=2108082087]
+layout_mode = 2
+text = "0.1"
+
+[connection signal="floor_conversion_changed" from="CanvasLayer/UISettingsControl" to="." method="set_floor_conversion"]
+[connection signal="step_count_changed" from="CanvasLayer/UISettingsControl" to="." method="set_step_count"]
+[connection signal="step_time_changed" from="CanvasLayer/UISettingsControl" to="." method="set_step_time"]
+[connection signal="wall_chance_changed" from="CanvasLayer/UISettingsControl" to="." method="set_wall_chance"]
+[connection signal="wall_conversion_changed" from="CanvasLayer/UISettingsControl" to="." method="set_wall_conversion"]
+[connection signal="pressed" from="CanvasLayer/UISettingsControl/GenerateButton" to="." method="generate_new_dungeon"]
+[connection signal="value_changed" from="CanvasLayer/UISettingsControl/WallChance/HSlider" to="CanvasLayer/UISettingsControl" method="_on_wall_chance_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/UISettingsControl/WallConversion/HSlider" to="CanvasLayer/UISettingsControl" method="_on_wall_conversion_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/UISettingsControl/FloorConversion/HSlider" to="CanvasLayer/UISettingsControl" method="_on_floor_conversion_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/UISettingsControl/StepCount/HSlider" to="CanvasLayer/UISettingsControl" method="_on_step_count_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/UISettingsControl/StepTime/HSlider" to="CanvasLayer/UISettingsControl" method="_on_step_time_value_changed"]
